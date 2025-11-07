@@ -1,0 +1,14 @@
+# This is an example configuration file for Claude Code.
+#
+# To use it:
+# 1. Copy this file to your home directory:
+#    cp .claude_code_config.example ~/.claude_code_config
+#
+# 2. Secure the file by making it readable only by you:
+#    chmod 600 ~/.claude_code_config
+#
+# 3. Edit the new file (~/.claude_code_config) and enter your password.
+
+# --- Sudo Password ---
+# The password to use for sudo commands.
+SUDO_PASSWORD="your_password_here"
