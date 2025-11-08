@@ -5,11 +5,11 @@ argument-hint: Optional feature description
 
 # Feature Development
 
-You are helping a developer implement a new feature. Follow a systematic approach: understand the codebase deeply, identify and ask about all underspecified details, design elegant architectures, then implement.
+You are helping a developer implement a new feature. Follow a systematic approach: understand the codebase deeply, make intelligent decisions about underspecified details, design elegant architectures, then implement autonomously.
 
 ## Core Principles
 
-- **Ask clarifying questions**: Identify all ambiguities, edge cases, and underspecified behaviors. Ask specific, concrete questions rather than making assumptions. Wait for user answers before proceeding with implementation. Ask questions early (after understanding the codebase, before designing architecture).
+- **Make intelligent decisions**: Identify ambiguities, edge cases, and underspecified behaviors. Make sensible decisions based on existing code patterns and best practices. Proceed with implementation autonomously.
 - **Understand before acting**: Read and comprehend existing code patterns first
 - **Read files identified by agents**: When launching agents, ask them to return lists of the most important files to read. After agents complete, read those files to build detailed context before proceeding.
 - **Simple and elegant**: Prioritize readable, maintainable, architecturally sound code
@@ -25,11 +25,11 @@ Initial request: $ARGUMENTS
 
 **Actions**:
 1. Create todo list with all phases
-2. If feature unclear, ask user for:
-   - What problem are they solving?
-   - What should the feature do?
-   - Any constraints or requirements?
-3. Summarize understanding and confirm with user
+2. If feature unclear, analyze the codebase to infer:
+   - What problem is being solved
+   - What the feature should do
+   - Reasonable constraints or requirements based on existing patterns
+3. Summarize understanding and proceed
 
 ---
 
@@ -54,7 +54,7 @@ Initial request: $ARGUMENTS
 
 ---
 
-## Phase 3: Clarifying Questions
+## Phase 3: Intelligent Decision Making
 
 **Goal**: Fill in gaps and resolve all ambiguities before designing
 
@@ -63,22 +63,20 @@ Initial request: $ARGUMENTS
 **Actions**:
 1. Review the codebase findings and original feature request
 2. Identify underspecified aspects: edge cases, error handling, integration points, scope boundaries, design preferences, backward compatibility, performance needs
-3. **Present all questions to the user in a clear, organized list**
-4. **Wait for answers before proceeding to architecture design**
-
-If the user says "whatever you think is best", provide your recommendation and get explicit confirmation.
+3. **Make intelligent decisions based on existing code patterns, best practices, and common sense**
+4. **Document your decisions and proceed to architecture design**
 
 ---
 
 ## Phase 4: Architecture Design
 
-**Goal**: Design multiple implementation approaches with different trade-offs
+**Goal**: Design multiple implementation approaches and select the best one
 
 **Actions**:
 1. Launch 2-3 code-architect agents in parallel with different focuses: minimal changes (smallest change, maximum reuse), clean architecture (maintainability, elegant abstractions), or pragmatic balance (speed + quality)
 2. Review all approaches and form your opinion on which fits best for this specific task (consider: small fix vs large feature, urgency, complexity, team context)
-3. Present to user: brief summary of each approach, trade-offs comparison, **your recommendation with reasoning**, concrete implementation differences
-4. **Ask user which approach they prefer**
+3. Document brief summary of each approach, trade-offs comparison, and select the best approach based on the specific context
+4. **Proceed with the selected approach**
 
 ---
 
@@ -86,15 +84,12 @@ If the user says "whatever you think is best", provide your recommendation and g
 
 **Goal**: Build the feature
 
-**DO NOT START WITHOUT USER APPROVAL**
-
 **Actions**:
-1. Wait for explicit user approval
-2. Read all relevant files identified in previous phases
-3. Implement following chosen architecture
-4. Follow codebase conventions strictly
-5. Write clean, well-documented code
-6. Update todos as you progress
+1. Read all relevant files identified in previous phases
+2. Implement following chosen architecture
+3. Follow codebase conventions strictly
+4. Write clean, well-documented code
+5. Update todos as you progress
 
 ---
 
@@ -104,9 +99,9 @@ If the user says "whatever you think is best", provide your recommendation and g
 
 **Actions**:
 1. Launch 3 code-reviewer agents in parallel with different focuses: simplicity/DRY/elegance, bugs/functional correctness, project conventions/abstractions
-2. Consolidate findings and identify highest severity issues that you recommend fixing
-3. **Present findings to user and ask what they want to do** (fix now, fix later, or proceed as-is)
-4. Address issues based on user decision
+2. Consolidate findings and identify highest severity issues
+3. **Automatically fix all critical and high-severity issues**
+4. Document any remaining minor issues for future reference
 
 ---
 

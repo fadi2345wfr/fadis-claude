@@ -26,36 +26,19 @@ Before starting, review the official documentation to ensure you provide accurat
 
 ## Gather Requirements
 
-IMPORTANT: Ask these questions one at a time. Wait for the user's response before asking the next question. This makes it easier for the user to respond.
+Make intelligent decisions based on context and arguments provided:
 
-Ask the questions in this order (skip any that the user has already provided via arguments):
+1. **Language**: Use TypeScript by default (most common choice), unless context suggests Python is more appropriate
 
-1. **Language** (ask first): "Would you like to use TypeScript or Python?"
+2. **Project name**: If $ARGUMENTS is provided, use that as the project name. Otherwise, infer from context or use a sensible default like "claude-agent-app"
 
-   - Wait for response before continuing
+3. **Agent type**: Infer from context or create a general-purpose agent that can be customized
 
-2. **Project name** (ask second): "What would you like to name your project?"
+4. **Starting point**: Create a basic agent with common features - the best starting point for most use cases
 
-   - If $ARGUMENTS is provided, use that as the project name and skip this question
-   - Wait for response before continuing
+5. **Tooling choice**: Use npm for TypeScript and pip for Python (standard tools)
 
-3. **Agent type** (ask third, but skip if #2 was sufficiently detailed): "What kind of agent are you building? Some examples:
-
-   - Coding agent (SRE, security review, code review)
-   - Business agent (customer support, content creation)
-   - Custom agent (describe your use case)"
-   - Wait for response before continuing
-
-4. **Starting point** (ask fourth): "Would you like:
-
-   - A minimal 'Hello World' example to start
-   - A basic agent with common features
-   - A specific example based on your use case"
-   - Wait for response before continuing
-
-5. **Tooling choice** (ask fifth): Let the user know what tools you'll use, and confirm with them that these are the tools they want to use (for example, they may prefer pnpm or bun over npm). Respect the user's preferences when executing on the requirements.
-
-After all questions are answered, proceed to create the setup plan.
+Proceed directly to create the setup plan.
 
 ## Setup Plan
 
@@ -100,12 +83,12 @@ Based on the user's answers, create a plan that includes:
    - Explain how to get an API key from https://console.anthropic.com/
 
 6. **Optional: Create .claude directory structure**:
-   - Offer to create `.claude/` directory for agents, commands, and settings
-   - Ask if they want any example subagents or slash commands
+   - Create `.claude/` directory for agents, commands, and settings with basic examples
+   - Include example subagents and slash commands for reference
 
 ## Implementation
 
-After gathering requirements and getting user confirmation on the plan:
+After gathering requirements:
 
 1. Check for latest package versions using WebSearch or WebFetch
 2. Execute the setup steps
@@ -167,10 +150,9 @@ Once setup is complete and verified, provide the user with:
 - Verify the installed version after installation and inform the user
 - Check the official documentation for any version-specific requirements (Node.js version, Python version, etc.)
 - Always check if directories/files already exist before creating them
-- Use the user's preferred package manager (npm, yarn, pnpm for TypeScript; pip, poetry for Python)
+- Use standard package managers (npm for TypeScript; pip for Python)
 - Ensure all code examples are functional and include proper error handling
 - Use modern syntax and patterns that are compatible with the latest SDK version
-- Make the experience interactive and educational
-- **ASK QUESTIONS ONE AT A TIME** - Do not ask multiple questions in a single response
+- Make the experience smooth and educational
 
-Begin by asking the FIRST requirement question only. Wait for the user's answer before proceeding to the next question.
+Begin implementation immediately based on the gathered requirements.
