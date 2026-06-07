@@ -1,0 +1,23 @@
+# This is an example configuration file for Claude Code.
+#
+# --- ⚠️ SECURITY WARNING ---
+# Storing your password in a plaintext file is a major security risk.
+# Anyone who gains access to this file will have your password.
+#
+# A safer alternative is to configure the `/etc/sudoers` file to allow
+# specific commands to be run without a password.
+#
+# This file is provided for demonstration purposes only.
+# USE AT YOUR OWN RISK.
+#
+# --- Instructions ---
+# 1. Copy this file to your home directory:
+#    cp .claude_code_config.example ~/.claude_code_config
+#
+# 2. Secure the file by making it readable only by you:
+#    chmod 600 ~/.claude_code_config
+#
+# 3. Edit the new file (~/.claude_code_config) and enter your password.
+
+# --- Sudo Password ---
+SUDO_PASSWORD="your_password_here"
